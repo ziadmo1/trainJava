@@ -15,6 +15,8 @@ import com.trainJava.demo.repositories.DepartmentRepo;
 import com.trainJava.demo.repositories.EmployeeRepo;
 import com.trainJava.demo.shared.CustomResponseExc;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -25,6 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmailService emailService;
 
+    @Transactional
     @Override
     public Employee createEmployee(CreateEmployeeDTO employeeDto) {
         var employee = new Employee();
